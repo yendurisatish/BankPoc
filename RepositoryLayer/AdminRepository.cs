@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using MySql.Data.MySqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
@@ -15,35 +16,38 @@ namespace RepositoryLayer
     {
         public DataSet GetAccountDetail()
         {
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
             SqlConnection con = new SqlConnection();
             try
+
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * FROM [view users]";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * FROM view_users";
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;
             }
             //throw new NotImplementedException();
-            catch
+            catch (Exception ex)
             {
-                return null;
+                throw ex; ;
             }
 
         }
         public DataSet GetDeposits()
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * FROM [MyBank].[dbo].[deposits]";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * FROM deposits";
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;
@@ -57,14 +61,15 @@ namespace RepositoryLayer
         }
         public DataSet GetUnApprovedDeposits()
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * FROM [MyBank].[dbo].[deposits] where approved='no'";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * FROM deposits where approved='no'";
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;
@@ -78,14 +83,15 @@ namespace RepositoryLayer
         }
         public DataSet GetLoans()
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * from [admin_view_loans]";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * from admin_view_loans";
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;
@@ -99,14 +105,15 @@ namespace RepositoryLayer
         }
         public DataSet GetUnApprovedLoans()
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * from [admin_approve_loans]";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * from admin_approve_loans";
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;
@@ -121,13 +128,14 @@ namespace RepositoryLayer
         
         public void CloseAccount(Int64 accno)
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+           // SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
+               // con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
                 string getUserDetail = "delete  from Customer where accountno='" + accno + "';";
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
                 cmd.ExecuteNonQuery();
 
             }
@@ -139,23 +147,24 @@ namespace RepositoryLayer
         }
         public void ApproveLoans(int id,int acc)
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * FROM [MyBank].[dbo].[Loan] where Id=" + id;
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * FROM Loan where Id=" + id;
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 //DataRow row = ds.Tables[0].Rows[0];
                 Int32 bal = Convert.ToInt32(ds.Tables[0].Rows[0]["loan_amount"]);
                 Int64 accno = Convert.ToInt32(ds.Tables[0].Rows[0]["account_no"]);
-                SqlCommand cmd1 = new SqlCommand("approveloans", con);
+                MySqlCommand cmd1 = new MySqlCommand("approveloans", conn);
                 cmd1.CommandType = CommandType.StoredProcedure;
-                cmd1.Parameters.AddWithValue("@id", id);
-                cmd1.Parameters.AddWithValue("@accountno", accno);
+                cmd1.Parameters.AddWithValue("@Loan_id", id);
+                cmd1.Parameters.AddWithValue("@account_no", accno);
                 cmd1.Parameters.AddWithValue("@bal", bal);
                 cmd1.Parameters.AddWithValue("@appAccountNo", acc);
                 cmd1.ExecuteNonQuery();
@@ -164,44 +173,46 @@ namespace RepositoryLayer
         }
         public void ApproveDeposits(int id, int acc)
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
-                string getUserDetail = "SELECT * FROM [MyBank].[dbo].[deposits] where deposit_id=" + id;
-                SqlCommand cmd = new SqlCommand(getUserDetail, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
+                string getUserDetail = "SELECT * FROM deposits where deposit_id=" + id;
+                MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 //DataRow row = ds.Tables[0].Rows[0];
                 Int32 bal = Convert.ToInt32(ds.Tables[0].Rows[0]["deposit_amount"]);
                 Int64 accno = Convert.ToInt32(ds.Tables[0].Rows[0][1]);
-                SqlCommand cmd1 = new SqlCommand("approvedeposits", con);
+                MySqlCommand cmd1 = new MySqlCommand("approvedeposits", conn);
                 cmd1.CommandType = CommandType.StoredProcedure;
                 cmd1.Parameters.AddWithValue("@id", id);
-                cmd1.Parameters.AddWithValue("@accountno", accno);
+                cmd1.Parameters.AddWithValue("@account_no", accno);
                 cmd1.Parameters.AddWithValue("@bal", bal);
-                cmd1.Parameters.AddWithValue("@appAccountNo", bal);
+                cmd1.Parameters.AddWithValue("@appAccountNo", acc);
                 cmd1.ExecuteNonQuery();
             }
             finally { }
         }
         public void UpdateAccount(CreateUser cu)
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
 
 
                 int boolInt = cu.IsAdmin ? 1 : 0;
-                SqlCommand cmd = new SqlCommand("update", con);
-
+                MySqlCommand cmd = new MySqlCommand("update", conn);
+                
                 cmd.CommandType = CommandType.StoredProcedure;
                // cmd.Parameters.AddWithValue("@username", cu.UserName);
-                cmd.Parameters.AddWithValue("@accountno", cu.AccountNumber);
+                cmd.Parameters.AddWithValue("@account_no", cu.AccountNumber);
                 cmd.Parameters.AddWithValue("@firstname", cu.FirstName);
                 cmd.Parameters.AddWithValue("@lastname", cu.LastName);
               //  cmd.Parameters.AddWithValue("@dob", cu.Dob);
@@ -220,7 +231,7 @@ namespace RepositoryLayer
             }
             finally
             {
-                con.Close();
+                conn.Close();
             }
 
         }
@@ -257,22 +268,23 @@ namespace RepositoryLayer
 
         public void CreateAccount(CreateUser cu, ref string errorMessage)
         {
-            SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
             try
             {
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-                con.Open();
+                //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+                conn.Open();
 
                 //DateTime dob = DateTime.ParseExact(Convert.ToString(cu.Dob), "dd/mm/yyyy", null);
                 int boolInt = cu.IsAdmin ? 1 : 0;
-                SqlCommand cmd = new SqlCommand("AddAccount", con);
+                MySqlCommand cmd = new MySqlCommand("adddata", conn);
                 //  SqlCommand cmd1 = new SqlCommand("insert into Login(username,password,admin) values('" + cu.UserName + "','" + cu.Password + "'," + boolInt + ");", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@username", cu.UserName);
                 //  cmd.Parameters.AddWithValue("@accountno", cu.AccountNumber);
                 cmd.Parameters.AddWithValue("@firstname", cu.FirstName);
                 cmd.Parameters.AddWithValue("@lastname", cu.LastName);
-                cmd.Parameters.AddWithValue("@dob", DateTime.ParseExact(cu.Dob, "dd/mm/yyyy", null));
+                cmd.Parameters.AddWithValue("@dob", cu.Dob);
                 cmd.Parameters.AddWithValue("@phoneno", cu.PhoneNumber);
                 cmd.Parameters.AddWithValue("@email", cu.Email);
                 cmd.Parameters.AddWithValue("@aadhar_no", cu.Aadhar);
@@ -280,7 +292,7 @@ namespace RepositoryLayer
                 cmd.Parameters.AddWithValue("@balance", cu.Balance);
                 cmd.Parameters.AddWithValue("@address", cu.Address);
                 cmd.Parameters.AddWithValue("@password", cu.Password);
-                cmd.Parameters.AddWithValue("@admin", cu.IsAdmin);
+                cmd.Parameters.AddWithValue("@Isadmin", cu.IsAdmin);
                 // cmd1.ExecuteNonQuery();
                 cmd.ExecuteNonQuery();
 
@@ -294,7 +306,7 @@ namespace RepositoryLayer
             }
             finally
             {
-                con.Close();
+                conn.Close();
             }
 
 

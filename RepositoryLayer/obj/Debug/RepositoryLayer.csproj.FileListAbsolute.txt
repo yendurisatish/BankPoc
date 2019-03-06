@@ -12,3 +12,24 @@ C:\Users\saivenkatas\Desktop\doc\BankWebApi\RepositoryLayer\bin\Debug\ModelLayer
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\RepositoryLayer\bin\Debug\ModelLayer.pdb
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\RepositoryLayer\obj\Debug\RepositoryLayer.dll
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\RepositoryLayer\obj\Debug\RepositoryLayer.pdb
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\RepositoryLayer.dll.config
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\RepositoryLayer.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\RepositoryLayer.pdb
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\EntityFramework.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\Google.Protobuf.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\ModelLayer.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\MySql.Data.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\ModelLayer.pdb
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\ModelLayer.dll.config
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\EntityFramework.xml
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\Google.Protobuf.xml
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\MySql.Data.xml
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\obj\Debug\RepositoryLayer.csprojAssemblyReference.cache
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\obj\Debug\RepositoryLayer.csproj.CoreCompileInputs.cache
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\obj\Debug\RepositoryLayer.csproj.CopyComplete
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\obj\Debug\RepositoryLayer.dll
+C:\Users\YThallam\Desktop\New folder\RepositoryLayer\obj\Debug\RepositoryLayer.pdb

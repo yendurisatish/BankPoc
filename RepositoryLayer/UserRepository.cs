@@ -11,21 +11,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using MySql.Data.MySqlClient;
 namespace RepositoryLayer
 {
    public class UserRepository
     {
        public DataSet getUserDetails(Int64 accno)
        {
-           SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
            try
            {
-               con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-               con.Open();
+               //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+               conn.Open();
                string getUserDetail = "SELECT * FROM Customer where accountno="+accno;
-               SqlCommand cmd = new SqlCommand(getUserDetail, con);
-               SqlDataAdapter da = new SqlDataAdapter(cmd);
+               MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+               MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                DataSet ds = new DataSet();
                da.Fill(ds);
                return ds;
@@ -38,14 +39,15 @@ namespace RepositoryLayer
        }
        public void sendMoney(Transaction ts)
        {
-           SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
            try
            {
-               con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-               con.Open();
+              // con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+               conn.Open();
               
               
-               SqlCommand cmd1 = new SqlCommand("transfer", con);
+               MySqlCommand cmd1 = new MySqlCommand("transfer", conn);
                cmd1.CommandType = CommandType.StoredProcedure;
                cmd1.Parameters.AddWithValue("@senderaccount", ts.senderaccount);
                cmd1.Parameters.AddWithValue("@targetaccount",ts.targetaccount );
@@ -56,14 +58,15 @@ namespace RepositoryLayer
        }
        public DataSet transHistory(Int64 accno)
        {
-           SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+           // SqlConnection con = new SqlConnection();
            try
            {
-               con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-               con.Open();
-               string getUserDetail = "select * from [dbo].[Transaction] where trans_account=" + accno + " or oth_account=" + accno ;
-               SqlCommand cmd = new SqlCommand(getUserDetail, con);
-               SqlDataAdapter da = new SqlDataAdapter(cmd);
+               //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+               conn.Open();
+               string getUserDetail = "select * from Transaction where trans_account=" + accno + " or oth_account=" + accno ;
+               MySqlCommand cmd = new MySqlCommand(getUserDetail, conn);
+               MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                DataSet ds = new DataSet();
                da.Fill(ds);
                return ds;
@@ -78,14 +81,15 @@ namespace RepositoryLayer
 
        public DataSet loanDetails(Int64 accno)
        {
-           SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
            try
            {
-               con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-               con.Open();
-               string loanDetail = "select * from [dbo].[user_view_loans] where account_no=" + accno;
-               SqlCommand cmd = new SqlCommand(loanDetail, con);
-               SqlDataAdapter da = new SqlDataAdapter(cmd);
+               //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+               conn.Open();
+               string loanDetail = "select * from user_view_loans where account_no=" + accno;
+               MySqlCommand cmd = new MySqlCommand(loanDetail, conn);
+               MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                DataSet ds = new DataSet();
                da.Fill(ds);
                return ds;
@@ -98,14 +102,15 @@ namespace RepositoryLayer
        }
        public DataSet depositDetails(Int64 accno)
        {
-           SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
            try
            {
-               con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-               con.Open();
-               string depositDetail = "select * from [dbo].[deposits] where accountno=" + accno;
-               SqlCommand cmd = new SqlCommand(depositDetail, con);
-               SqlDataAdapter da = new SqlDataAdapter(cmd);
+               //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+               conn.Open();
+               string depositDetail = "select * from deposits where accountno=" + accno;
+               MySqlCommand cmd = new MySqlCommand(depositDetail, conn);
+              MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                DataSet ds = new DataSet();
                da.Fill(ds);
                return ds;
@@ -172,16 +177,17 @@ namespace RepositoryLayer
        }
       public void applyLoan(ApplyLoan al)
        {
-           SqlConnection con = new SqlConnection();
-           con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-           con.Open();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+         //   SqlConnection con = new SqlConnection();
+          // con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+           conn.Open();
           // string source = @"C:\Users\saivenkatas\Desktop\doc\hackathon_participation.jpg";
            //al.Payslip = SaveFile(source);
            //al.Photo = SaveFile(source);
            //al.Signature = SaveFile(source);
            try
            {
-               SqlCommand cmd = new SqlCommand("applyLoan", con);
+               MySqlCommand cmd = new MySqlCommand("applyLoan", conn);
                cmd.CommandType = CommandType.StoredProcedure;
                cmd.Parameters.AddWithValue("@accountNumber", al.AccountNumber);
                cmd.Parameters.AddWithValue("@loanType", al.LoanType);
@@ -197,35 +203,37 @@ namespace RepositoryLayer
            finally
            {
 
-               con.Close();
+               conn.Close();
            }
        }
       public void applyDeposit(Deposits ds)
       {
-          SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+            //SqlConnection con = new SqlConnection();
           try
           {
-              con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-              con.Open();
-              SqlCommand cmd1 = new SqlCommand("insert into deposits(accountno,deposit_amount,duration,approved) values('" + ds.AccountNumber + "','" + ds.DepositAmount + "','" + ds.Duration + "','no')", con);
+              //con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+              conn.Open();
+             MySqlCommand cmd1 = new MySqlCommand("insert into deposits(accountno,deposit_amount,duration,approved) values('" + ds.AccountNumber + "','" + ds.DepositAmount + "','" + ds.Duration + "','no')", conn);
               cmd1.ExecuteNonQuery();
           }
           finally
           {
-              con.Close();
+              conn.Close();
           }
       }
 
 
       public DataSet Login(string username,string password)
       {
-          SqlConnection con = new SqlConnection();
+            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=mybank; Uid=aeo; Pwd=@300;");
+           // SqlConnection con = new SqlConnection();
           try
           {
-              con.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
-              con.Open();
-              SqlCommand cmd = new SqlCommand("select * from Customer where username='" + username + "' and password='" + password + "'", con);
-              SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //  conn.ConnectionString = ConfigurationManager.ConnectionStrings["BankManagmentConn"].ConnectionString;
+              conn.Open();
+              MySqlCommand cmd = new MySqlCommand("select * from Customer where username='" + username + "' and password='" + password + "'", conn);
+              MySqlDataAdapter da = new MySqlDataAdapter(cmd);
               DataSet ds = new DataSet();
               da.Fill(ds);
               return ds;

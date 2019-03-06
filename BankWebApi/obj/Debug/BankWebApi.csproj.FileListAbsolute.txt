@@ -48,3 +48,43 @@ C:\Users\saivenkatas\Desktop\doc\BankWebApi\BankWebApi\bin\RepositoryLayer.pdb
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\BankWebApi\obj\Debug\BankWebApi.csprojResolveAssemblyReference.cache
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\BankWebApi\obj\Debug\BankWebApi.dll
 C:\Users\saivenkatas\Desktop\doc\BankWebApi\BankWebApi\obj\Debug\BankWebApi.pdb
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\BankWebApi.dll.config
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\BankWebApi.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\BankWebApi.pdb
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\EntityFramework.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\Google.Protobuf.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\Microsoft.Web.XmlTransform.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ModelLayer.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\MySql.Data.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\MySql.Data.Entity.EF6.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\Newtonsoft.Json.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\NuGet.Core.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ServiceLayer.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Cors.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\RepositoryLayer.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ModelLayer.pdb
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ModelLayer.dll.config
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ServiceLayer.pdb
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\ServiceLayer.dll.config
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\EntityFramework.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\EntityFramework.SqlServer.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\Google.Protobuf.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\MySql.Data.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\MySql.Data.Entity.EF6.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\Newtonsoft.Json.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.Cors.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\RepositoryLayer.pdb
+C:\Users\YThallam\Desktop\New folder\BankWebApi\bin\RepositoryLayer.dll.config
+C:\Users\YThallam\Desktop\New folder\BankWebApi\obj\Debug\BankWebApi.csprojAssemblyReference.cache
+C:\Users\YThallam\Desktop\New folder\BankWebApi\obj\Debug\BankWebApi.csproj.CoreCompileInputs.cache
+C:\Users\YThallam\Desktop\New folder\BankWebApi\obj\Debug\BankWebApi.csproj.CopyComplete
+C:\Users\YThallam\Desktop\New folder\BankWebApi\obj\Debug\BankWebApi.dll
+C:\Users\YThallam\Desktop\New folder\BankWebApi\obj\Debug\BankWebApi.pdb
